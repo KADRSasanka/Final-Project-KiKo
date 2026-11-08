@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../../features/auth/providers/auth_providers.dart';
 import '../../features/auth/screens/sign_in_screen.dart';
 import '../../features/home/screens/home_screen.dart';
+import '../../features/profile/providers/profile_providers.dart';
+import '../../features/profile/screens/create_profile_screen.dart';
 import '../../features/profile/screens/profile_picker_screen.dart';
 import '../../features/splash/screens/splash_screen.dart';
 import 'app_routes.dart';
@@ -28,6 +30,12 @@ final routerProvider = Provider<GoRouter>((ref) {
       if (location == AppRoutes.splash) return null; // splash moves on itself
       if (!loggedIn && location != AppRoutes.signIn) return AppRoutes.signIn;
       if (loggedIn && location == AppRoutes.signIn) return AppRoutes.profiles;
+
+      // Home needs a chosen player.
+      final hasPlayer = ref.read(activeChildIdProvider) != null;
+      if (loggedIn && location == AppRoutes.home && !hasPlayer) {
+        return AppRoutes.profiles;
+      }
       return null;
     },
     routes: [
@@ -42,6 +50,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: AppRoutes.profiles,
         builder: (context, state) => const ProfilePickerScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.createProfile,
+        builder: (context, state) => const CreateProfileScreen(),
       ),
       GoRoute(
         path: AppRoutes.home,
