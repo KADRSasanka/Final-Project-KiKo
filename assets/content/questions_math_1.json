@@ -1,0 +1,10 @@
+{"questions": [
+  {"prompt": "7 + 5 = ?", "options": ["10", "11", "12", "13"], "answer": 2,
+   "hints": ["Start at 7 and count up 5 steps.", "7 + 3 = 10. Then add 2 more."]},
+  {"prompt": "9 - 4 = ?", "options": ["3", "4", "5", "6"], "answer": 2,
+   "hints": ["Count back 4 steps from 9.", "Think: 4 + what = 9?"]},
+  {"prompt": "6 x 3 = ?", "options": ["12", "18", "21", "24"], "answer": 1,
+   "hints": ["Add 6 three times: 6 + 6 + 6.", "6 + 6 = 12. Then add 6 more."]},
+  {"prompt": "20 / 4 = ?", "options": ["4", "5", "6", "8"], "answer": 1,
+   "hints": ["How many groups of 4 fit into 20?", "Try 4 x 5. Does it make 20?"]}
+]}

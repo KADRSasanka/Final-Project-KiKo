@@ -7,7 +7,7 @@ import '../../../core/theme/app_theme.dart';
 import '../../../core/widgets/avatar_badge.dart';
 import '../../profile/providers/profile_providers.dart';
 
-/// Placeholder Adventure Map: shows the active player and the 5 tracks.
+/// Adventure Map: active player, XP/coins, and the 5 tracks.
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
@@ -48,12 +48,14 @@ class HomeScreen extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: AppSizes.pad),
               child: Card(
+                clipBehavior: Clip.antiAlias,
                 child: ListTile(
                   contentPadding: const EdgeInsets.all(AppSizes.pad),
                   leading:
                       CircleAvatar(radius: 26, backgroundColor: track.color),
                   title: Text(track.label, style: text.titleMedium),
                   trailing: const Icon(Icons.chevron_right),
+                  onTap: () => context.push(AppRoutes.trackPath(track.name)),
                 ),
               ),
             ),

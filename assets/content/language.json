@@ -1,0 +1,9 @@
+{
+  "levels": [
+    {"id": "lang_1", "title": "Letter Tiles", "activity": "spelling_tiles", "minutes": 2, "xp": 10},
+    {"id": "lang_2", "title": "Word Hunt", "activity": "word_hunt", "minutes": 2, "xp": 10},
+    {"id": "lang_3", "title": "Fix the Sentence", "activity": "grammar_fixer", "minutes": 2, "xp": 15},
+    {"id": "lang_4", "title": "Story Builder", "activity": "story_builder", "minutes": 3, "xp": 15},
+    {"id": "lang_5", "title": "Word Quiz", "activity": "quiz", "minutes": 2, "xp": 25}
+  ]
+}

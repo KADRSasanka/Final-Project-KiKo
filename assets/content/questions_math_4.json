@@ -1,0 +1,10 @@
+{"questions": [
+  {"prompt": "3 x 4 = ?", "options": ["7", "9", "12", "14"], "answer": 2,
+   "hints": ["Add 3 four times.", "Count by 3s: 3, 6, 9, ..."]},
+  {"prompt": "5 x 6 = ?", "options": ["25", "30", "35", "40"], "answer": 1,
+   "hints": ["Count by 5s, six times.", "5, 10, 15, 20, ..."]},
+  {"prompt": "8 x 2 = ?", "options": ["10", "14", "16", "18"], "answer": 2,
+   "hints": ["Double the number 8.", "8 + 8 = ?"]},
+  {"prompt": "9 x 3 = ?", "options": ["24", "27", "29", "36"], "answer": 1,
+   "hints": ["Count by 9s, three times.", "9 + 9 = 18. Add 9 more."]}
+]}

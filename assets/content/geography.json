@@ -1,0 +1,9 @@
+{
+  "levels": [
+    {"id": "geo_1", "title": "Map Pins", "activity": "map_pins", "minutes": 2, "xp": 10},
+    {"id": "geo_2", "title": "Flag Match", "activity": "flag_match", "minutes": 2, "xp": 10},
+    {"id": "geo_3", "title": "Landmark Quest", "activity": "landmark_quest", "minutes": 2, "xp": 15},
+    {"id": "geo_4", "title": "Continent Trail", "activity": "map_pins", "minutes": 3, "xp": 15},
+    {"id": "geo_5", "title": "World Quiz", "activity": "quiz", "minutes": 2, "xp": 25}
+  ]
+}

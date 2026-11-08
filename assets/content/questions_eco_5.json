@@ -1,0 +1,10 @@
+{"questions": [
+  {"prompt": "Which of these can be recycled?", "options": ["Plastic bottle", "Banana peel", "Used tissue", "Chip packet"], "answer": 0,
+   "hints": ["Think of something made of plastic.", "You drink from it."]},
+  {"prompt": "What do plants need to grow?", "options": ["Sunlight and water", "Only candy", "Only plastic", "Darkness and sand"], "answer": 0,
+   "hints": ["Rain helps them.", "They love a sunny day."]},
+  {"prompt": "Which one saves water?", "options": ["Leaving the tap running", "Turning off the tap while brushing", "Very long showers", "Leaving the hose on"], "answer": 1,
+   "hints": ["Do not let water run for no reason.", "What should you do to the tap while brushing?"]},
+  {"prompt": "What can you do with an old glass jar?", "options": ["Throw it in the sea", "Reuse or recycle it", "Bury it", "Burn it"], "answer": 1,
+   "hints": ["Think about giving it a new life.", "Reduce, reuse, ___!"]}
+]}

@@ -1,0 +1,10 @@
+{"questions": [
+  {"prompt": "Which is the largest ocean?", "options": ["Atlantic", "Indian", "Pacific", "Arctic"], "answer": 2,
+   "hints": ["It covers about a third of the Earth.", "Its name sounds like 'peace'."]},
+  {"prompt": "Which continent is Sri Lanka in?", "options": ["Africa", "Asia", "Europe", "Australia"], "answer": 1,
+   "hints": ["It is the biggest continent.", "India and China are here too."]},
+  {"prompt": "Which country has the Eiffel Tower?", "options": ["Italy", "Spain", "France", "Egypt"], "answer": 2,
+   "hints": ["The tower is in the city of Paris.", "Paris is the capital of this country."]},
+  {"prompt": "What is the capital of Japan?", "options": ["Seoul", "Tokyo", "Beijing", "Bangkok"], "answer": 1,
+   "hints": ["It has a very busy crossing at Shibuya.", "The name starts with 'To'."]}
+]}

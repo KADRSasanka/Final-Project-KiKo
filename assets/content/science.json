@@ -1,0 +1,9 @@
+{
+  "levels": [
+    {"id": "sci_1", "title": "Planet Parade", "activity": "solar_system", "minutes": 2, "xp": 10},
+    {"id": "sci_2", "title": "Animal Homes", "activity": "matching", "minutes": 2, "xp": 10},
+    {"id": "sci_3", "title": "Body Explorer", "activity": "body_explorer", "minutes": 2, "xp": 15},
+    {"id": "sci_4", "title": "Water Lab", "activity": "virtual_lab", "minutes": 3, "xp": 15},
+    {"id": "sci_5", "title": "Space Quiz", "activity": "quiz", "minutes": 2, "xp": 25}
+  ]
+}

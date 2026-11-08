@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/activities/screens/activity_host_screen.dart';
 import '../../features/auth/providers/auth_providers.dart';
 import '../../features/auth/screens/sign_in_screen.dart';
 import '../../features/home/screens/home_screen.dart';
@@ -9,6 +10,8 @@ import '../../features/profile/providers/profile_providers.dart';
 import '../../features/profile/screens/create_profile_screen.dart';
 import '../../features/profile/screens/profile_picker_screen.dart';
 import '../../features/splash/screens/splash_screen.dart';
+import '../../features/tracks/screens/level_intro_screen.dart';
+import '../../features/tracks/screens/track_screen.dart';
 import 'app_routes.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
@@ -31,11 +34,11 @@ final routerProvider = Provider<GoRouter>((ref) {
       if (!loggedIn && location != AppRoutes.signIn) return AppRoutes.signIn;
       if (loggedIn && location == AppRoutes.signIn) return AppRoutes.profiles;
 
-      // Home needs a chosen player.
+      // Home and track screens need a chosen player.
       final hasPlayer = ref.read(activeChildIdProvider) != null;
-      if (loggedIn && location == AppRoutes.home && !hasPlayer) {
-        return AppRoutes.profiles;
-      }
+      final needsPlayer =
+          location == AppRoutes.home || location.startsWith('/track/');
+      if (loggedIn && needsPlayer && !hasPlayer) return AppRoutes.profiles;
       return null;
     },
     routes: [
@@ -58,6 +61,25 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: AppRoutes.home,
         builder: (context, state) => const HomeScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.track,
+        builder: (context, state) =>
+            TrackScreen(trackId: state.pathParameters['trackId']!),
+      ),
+      GoRoute(
+        path: AppRoutes.level,
+        builder: (context, state) => LevelIntroScreen(
+          trackId: state.pathParameters['trackId']!,
+          levelId: state.pathParameters['levelId']!,
+        ),
+      ),
+      GoRoute(
+        path: AppRoutes.play,
+        builder: (context, state) => ActivityHostScreen(
+          trackId: state.pathParameters['trackId']!,
+          levelId: state.pathParameters['levelId']!,
+        ),
       ),
     ],
   );

@@ -1,0 +1,9 @@
+{
+  "levels": [
+    {"id": "eco_1", "title": "Sort It Out", "activity": "sorting", "minutes": 2, "xp": 10},
+    {"id": "eco_2", "title": "Recycle Rush", "activity": "sorting", "minutes": 2, "xp": 10},
+    {"id": "eco_3", "title": "Beach Clean-up", "activity": "cleanup", "minutes": 3, "xp": 15},
+    {"id": "eco_4", "title": "Eco Mission", "activity": "eco_mission", "minutes": 3, "xp": 15},
+    {"id": "eco_5", "title": "Nature Quiz", "activity": "quiz", "minutes": 2, "xp": 25}
+  ]
+}

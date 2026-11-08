@@ -1,0 +1,10 @@
+{"questions": [
+  {"prompt": "Which word means the opposite of 'big'?", "options": ["small", "huge", "tall", "wide"], "answer": 0,
+   "hints": ["Think of an ant next to an elephant.", "Big and ___ are opposites."]},
+  {"prompt": "Which word is spelled correctly?", "options": ["freind", "friend", "frend", "firend"], "answer": 1,
+   "hints": ["Remember: i before e.", "It ends with 'end'."]},
+  {"prompt": "Which word is a verb (an action word)?", "options": ["table", "jump", "blue", "happy"], "answer": 1,
+   "hints": ["A verb is something you can do.", "Which word can you act out?"]},
+  {"prompt": "The dogs ___ in the park.", "options": ["runs", "run", "running", "runned"], "answer": 1,
+   "hints": ["'Dogs' means more than one.", "Say it out loud: The dogs ___ in the park."]}
+]}

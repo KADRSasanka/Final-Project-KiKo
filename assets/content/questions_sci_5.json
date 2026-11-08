@@ -1,0 +1,10 @@
+{"questions": [
+  {"prompt": "Which planet is closest to the Sun?", "options": ["Earth", "Mercury", "Mars", "Venus"], "answer": 1,
+   "hints": ["It is also the smallest planet.", "Its name starts with 'Mer'."]},
+  {"prompt": "What is the name of our galaxy?", "options": ["Milky Way", "Andromeda", "Sun Galaxy", "Star Road"], "answer": 0,
+   "hints": ["Its name sounds like a sweet treat.", "It starts with 'Milky'."]},
+  {"prompt": "Which planet is famous for its big rings?", "options": ["Jupiter", "Saturn", "Mars", "Earth"], "answer": 1,
+   "hints": ["It is the sixth planet from the Sun.", "Its name starts with the letter S."]},
+  {"prompt": "What does the Moon travel around?", "options": ["The Sun", "Mars", "Earth", "Jupiter"], "answer": 2,
+   "hints": ["It is the planet we live on.", "Look at the ground under your feet!"]}
+]}

@@ -1,0 +1,9 @@
+{
+  "levels": [
+    {"id": "math_1", "title": "Number Ninjas", "activity": "quiz", "minutes": 2, "xp": 10},
+    {"id": "math_2", "title": "Fraction Pizza", "activity": "fraction_pizza", "minutes": 2, "xp": 10},
+    {"id": "math_3", "title": "Number Bridge", "activity": "number_bridge", "minutes": 2, "xp": 15},
+    {"id": "math_4", "title": "Times Table Race", "activity": "quiz", "minutes": 2, "xp": 15},
+    {"id": "math_5", "title": "Boss Battle", "activity": "boss_battle", "minutes": 3, "xp": 25}
+  ]
+}
