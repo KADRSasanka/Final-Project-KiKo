@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "637005769102",
+    "project_id": "final-project-kiko",
+    "storage_bucket": "final-project-kiko.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637005769102:android:1b2947fb561871f858dcdf",
+        "android_client_info": {
+          "package_name": "com.kiko.kiko"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjrIR8OBKypFXR-gD3MYogkfSmKbIXwTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
