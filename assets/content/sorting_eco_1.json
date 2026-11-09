@@ -1,0 +1,15 @@
+{
+  "bins": ["recycle", "trash"],
+  "items": [
+    {"label": "Plastic bottle", "emoji": "🧴", "bin": "recycle",
+     "hints": ["Look for the recycling symbol on it.", "It's made of plastic, so it can be recycled."]},
+    {"label": "Aluminum can", "emoji": "🥫", "bin": "recycle",
+     "hints": ["It's made of metal.", "Metal cans can be recycled."]},
+    {"label": "Used tissue", "emoji": "🤧", "bin": "trash",
+     "hints": ["It has been used already.", "Used paper like this cannot be recycled."]},
+    {"label": "Newspaper", "emoji": "📰", "bin": "recycle",
+     "hints": ["It's made of paper.", "Clean paper can be recycled."]},
+    {"label": "Chip packet", "emoji": "🥡", "bin": "trash",
+     "hints": ["It's made of mixed materials stuck together.", "Most recycling bins can't take this kind of wrapper."]}
+  ]
+}

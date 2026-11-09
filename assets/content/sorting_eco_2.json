@@ -1,0 +1,15 @@
+{
+  "bins": ["recycle", "compost", "trash"],
+  "items": [
+    {"label": "Apple core", "emoji": "🍎", "bin": "compost",
+     "hints": ["It came from a plant.", "Worms and soil love to eat this!"]},
+    {"label": "Glass bottle", "emoji": "🍾", "bin": "recycle",
+     "hints": ["It's made of glass.", "Glass can be melted and reused."]},
+    {"label": "Plastic bag", "emoji": "🛍️", "bin": "trash",
+     "hints": ["It's thin, stretchy plastic.", "Most curbside bins can't take this kind of plastic."]},
+    {"label": "Eggshell", "emoji": "🥚", "bin": "compost",
+     "hints": ["It came from a chicken's egg.", "It breaks down and feeds the soil."]},
+    {"label": "Cardboard box", "emoji": "📦", "bin": "recycle",
+     "hints": ["It's made of paper.", "Flatten it before it goes in!"]}
+  ]
+}
