@@ -5,6 +5,7 @@ import '../fraction_pizza/fraction_pizza_activity.dart';
 import '../matching/matching_activity.dart';
 import '../quiz/quiz_activity.dart';
 import '../sorting/sorting_activity.dart';
+import '../spelling/spelling_activity.dart';
 import 'activity_session.dart';
 import 'coming_soon_activity.dart';
 
@@ -26,6 +27,8 @@ class ActivityRegistry {
     'sorting': (level, session) => SortingActivity(level: level, session: session),
     'fraction_pizza': (level, session) =>
         FractionPizzaActivity(level: level, session: session),
+    'spelling_tiles': (level, session) =>
+        SpellingActivity(level: level, session: session),
     // One widget, three activity names (each reads its own matching_{levelId}.json)
     'matching': _matching,
     'flag_match': _matching,

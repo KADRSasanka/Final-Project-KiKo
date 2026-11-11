@@ -1,0 +1,14 @@
+{
+  "words": [
+    {"word": "BOOK", "emoji": "📚", "clue": "You read this.",
+     "hints": ["It starts with the letter B.", "It has 4 letters and ends with K."]},
+    {"word": "APPLE", "emoji": "🍎", "clue": "A crunchy red fruit.",
+     "hints": ["It starts with the letter A.", "It has two P's in the middle."]},
+    {"word": "TIGER", "emoji": "🐯", "clue": "A big striped cat.",
+     "hints": ["It starts with the letter T.", "It has 5 letters and ends with R."]},
+    {"word": "PLANET", "emoji": "🪐", "clue": "Earth is one of these.",
+     "hints": ["It starts with the letter P.", "It has 6 letters and ends with T."]},
+    {"word": "RAINBOW", "emoji": "🌈", "clue": "Colours in the sky after rain.",
+     "hints": ["It starts with the letter R.", "It is two words in one: RAIN + BOW."]}
+  ]
+}

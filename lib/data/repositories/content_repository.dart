@@ -7,6 +7,7 @@ import '../models/level.dart';
 import '../models/matching_level.dart';
 import '../models/quiz_question.dart';
 import '../models/sorting_level.dart';
+import '../models/spelling_word.dart';
 
 /// Loads content from assets/content/
 class ContentRepository {
@@ -50,4 +51,13 @@ class ContentRepository {
   /// Matching game: assets/content/matching_{levelId}.json
   Future<MatchingLevel> loadMatchingLevel(String levelId) async =>
       MatchingLevel.fromJson(await _json('matching_$levelId.json'));
+
+  /// Spelling tiles: assets/content/spelling_{levelId}.json
+  Future<List<SpellingWord>> loadSpellingWords(String levelId) async {
+    final data = await _json('spelling_$levelId.json');
+    return [
+      for (final w in data['words'] as List)
+        SpellingWord.fromJson(w as Map<String, dynamic>),
+    ];
+  }
 }
