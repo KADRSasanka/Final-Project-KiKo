@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 
 import '../../../data/models/level.dart';
 import '../fraction_pizza/fraction_pizza_activity.dart';
+import '../matching/matching_activity.dart';
 import '../quiz/quiz_activity.dart';
 import '../sorting/sorting_activity.dart';
 import 'activity_session.dart';
@@ -17,11 +18,18 @@ typedef ActivityBuilder = Widget Function(
 class ActivityRegistry {
   ActivityRegistry._();
 
+  static Widget _matching(Level level, ActivitySession session) =>
+      MatchingActivity(level: level, session: session);
+
   static final Map<String, ActivityBuilder> _builders = {
     'quiz': (level, session) => QuizActivity(level: level, session: session),
     'sorting': (level, session) => SortingActivity(level: level, session: session),
     'fraction_pizza': (level, session) =>
         FractionPizzaActivity(level: level, session: session),
+    // One widget, three activity names (each reads its own matching_{levelId}.json)
+    'matching': _matching,
+    'flag_match': _matching,
+    'landmark_quest': _matching,
   };
 
   static Widget build(Level level, ActivitySession session) {

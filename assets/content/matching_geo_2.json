@@ -1,0 +1,13 @@
+{
+  "prompt": "Drag each flag to its country!",
+  "pairs": [
+    {"item": {"emoji": "🇱🇰", "label": ""}, "target": {"emoji": "", "label": "Sri Lanka"},
+     "hints": ["One flag has a lion holding a sword.", "The lion flag belongs to the island south of India."]},
+    {"item": {"emoji": "🇯🇵", "label": ""}, "target": {"emoji": "", "label": "Japan"},
+     "hints": ["One flag is white with a single red circle.", "That red circle stands for the rising sun."]},
+    {"item": {"emoji": "🇫🇷", "label": ""}, "target": {"emoji": "", "label": "France"},
+     "hints": ["One flag has three stripes: blue, white and red.", "The capital of this country is Paris."]},
+    {"item": {"emoji": "🇧🇷", "label": ""}, "target": {"emoji": "", "label": "Brazil"},
+     "hints": ["One flag is green with a yellow diamond.", "This country is in South America and loves football."]}
+  ]
+}

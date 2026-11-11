@@ -1,0 +1,13 @@
+{
+  "prompt": "Drag each animal to its home!",
+  "pairs": [
+    {"item": {"emoji": "🐪", "label": "Camel"}, "target": {"emoji": "🏜️", "label": "Desert"},
+     "hints": ["Camels live where it is hot and dry.", "Camels store fat in their humps for long walks in the sand."]},
+    {"item": {"emoji": "🐧", "label": "Penguin"}, "target": {"emoji": "🧊", "label": "Icy Land"},
+     "hints": ["Penguins live where it is very, very cold.", "Penguins waddle on snow and ice."]},
+    {"item": {"emoji": "🐟", "label": "Fish"}, "target": {"emoji": "🌊", "label": "Ocean"},
+     "hints": ["Fish breathe underwater.", "Fish live in the sea, rivers and lakes."]},
+    {"item": {"emoji": "🐒", "label": "Monkey"}, "target": {"emoji": "🌴", "label": "Rainforest"},
+     "hints": ["Monkeys love to climb and swing in trees.", "Look for the place with lots of tall, green trees."]}
+  ]
+}

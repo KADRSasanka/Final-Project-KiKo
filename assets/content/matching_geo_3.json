@@ -1,0 +1,13 @@
+{
+  "prompt": "Drag each landmark to its country!",
+  "pairs": [
+    {"item": {"emoji": "🗻", "label": "Mount Fuji"}, "target": {"emoji": "🇯🇵", "label": "Japan"},
+     "hints": ["Mount Fuji is a famous snowy volcano.", "Its country is in East Asia and its capital is Tokyo."]},
+    {"item": {"emoji": "🗽", "label": "Statue of Liberty"}, "target": {"emoji": "🇺🇸", "label": "USA"},
+     "hints": ["The Statue of Liberty stands in New York City.", "It was a gift from France to the United States."]},
+    {"item": {"emoji": "🕌", "label": "Taj Mahal"}, "target": {"emoji": "🇮🇳", "label": "India"},
+     "hints": ["The Taj Mahal is a white marble building in the city of Agra.", "This country is Sri Lanka's big neighbour."]},
+    {"item": {"emoji": "🏔️", "label": "Sigiriya"}, "target": {"emoji": "🇱🇰", "label": "Sri Lanka"},
+     "hints": ["Sigiriya is an ancient rock fortress.", "It is in a country shaped like a teardrop."]}
+  ]
+}
