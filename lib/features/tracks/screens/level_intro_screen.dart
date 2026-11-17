@@ -7,6 +7,8 @@ import '../../../core/theme/app_theme.dart';
 import '../../../data/models/activity_info.dart';
 import '../../../data/models/level.dart';
 import '../../../data/models/track_progress.dart';
+import '../../grown_ups/providers/grown_ups_providers.dart';
+import '../../grown_ups/widgets/time_up_dialog.dart';
 import '../providers/tracks_providers.dart';
 
 class LevelIntroScreen extends ConsumerWidget {
@@ -47,7 +49,13 @@ class LevelIntroScreen extends ConsumerWidget {
             level: level,
             color: track?.color ?? AppColors.primary,
             bestStars: progress.starsFor(level.id),
-            onStart: () => context.push(AppRoutes.playPath(trackId, level!.id)),
+            onStart: () {
+              if (ref.read(isTimeUpProvider)) {
+                showTimeUpDialog(context);
+                return;
+              }
+              context.push(AppRoutes.playPath(trackId, level!.id));
+            },
           );
         },
       ),

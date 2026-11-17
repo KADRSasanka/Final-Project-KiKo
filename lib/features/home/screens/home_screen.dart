@@ -45,6 +45,20 @@ class HomeScreen extends ConsumerWidget {
               _StatChip(label: '🔥 ${child?.currentStreak ?? 0}'),
             ],
           ),
+          if (child?.isTimeUp ?? false) ...[
+            const SizedBox(height: AppSizes.pad),
+            Container(
+              padding: const EdgeInsets.all(AppSizes.pad),
+              decoration: BoxDecoration(
+                color: AppColors.purple.withValues(alpha: 0.2),
+                borderRadius: BorderRadius.circular(AppSizes.radius),
+              ),
+              child: Text(
+                "🌙 Time's up for today. See you tomorrow!",
+                style: text.titleSmall,
+              ),
+            ),
+          ],
           const SizedBox(height: AppSizes.pad),
           for (final track in Track.values)
             Padding(

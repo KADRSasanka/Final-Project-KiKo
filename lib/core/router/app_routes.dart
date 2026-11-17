@@ -11,6 +11,7 @@ class AppRoutes {
   static const home = '/home';
   static const rewards = '/rewards';
   static const shop = '/shop';
+  static const grownUps = '/grown-ups';
 
   // Route patterns (used in GoRoute)
   static const track = '/track/:trackId';

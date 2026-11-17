@@ -5,6 +5,9 @@ import 'package:go_router/go_router.dart';
 import '../../../data/models/level.dart';
 import '../../../data/models/level_completion.dart';
 import '../../auth/providers/auth_providers.dart';
+import '../../grown_ups/providers/grown_ups_providers.dart';
+import '../../grown_ups/services/play_time_tracker.dart';
+import '../../grown_ups/widgets/time_up_dialog.dart';
 import '../../profile/providers/profile_providers.dart';
 import '../../tracks/providers/tracks_providers.dart';
 import '../engine/activity_registry.dart';
@@ -46,6 +49,7 @@ class _Result {
 
 class _ActivityHostScreenState extends ConsumerState<ActivityHostScreen> {
   late ActivitySession _session;
+  late final PlayTimeTracker _tracker;
   int _run = 0; // changes on "Play again" to rebuild the activity fresh
   bool _completing = false;
   _Result? _result;
@@ -54,10 +58,22 @@ class _ActivityHostScreenState extends ConsumerState<ActivityHostScreen> {
   void initState() {
     super.initState();
     _session = ActivitySession()..addListener(_onSession);
+
+    // Count play time for the Grown-ups tab and the daily time limit.
+    final uid = ref.read(authRepositoryProvider).currentUser?.uid;
+    final childId = ref.read(activeChildIdProvider);
+    final repo = ref.read(grownUpsRepositoryProvider);
+    _tracker = PlayTimeTracker(
+      onFlush: (seconds) {
+        if (uid == null || childId == null) return Future.value();
+        return repo.addPlaySeconds(uid: uid, childId: childId, seconds: seconds);
+      },
+    )..start();
   }
 
   @override
   void dispose() {
+    _tracker.stop();
     _session.removeListener(_onSession);
     _session.dispose();
     super.dispose();
@@ -114,6 +130,11 @@ class _ActivityHostScreenState extends ConsumerState<ActivityHostScreen> {
   }
 
   void _replay() {
+    // The level that was just finished may have used up today's time.
+    if (ref.read(isTimeUpProvider)) {
+      showTimeUpDialog(context);
+      return;
+    }
     _session.removeListener(_onSession);
     _session.dispose();
     setState(() {

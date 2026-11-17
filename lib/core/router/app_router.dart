@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/activities/screens/activity_host_screen.dart';
 import '../../features/auth/providers/auth_providers.dart';
 import '../../features/auth/screens/sign_in_screen.dart';
+import '../../features/grown_ups/screens/grown_ups_screen.dart';
 import '../../features/home/screens/home_screen.dart';
 import '../../features/home/screens/main_shell.dart';
 import '../../features/profile/providers/profile_providers.dart';
@@ -42,6 +43,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       final needsPlayer = location == AppRoutes.home ||
           location == AppRoutes.rewards ||
           location == AppRoutes.shop ||
+          location == AppRoutes.grownUps ||
           location.startsWith('/track/');
       if (loggedIn && needsPlayer && !hasPlayer) return AppRoutes.profiles;
       return null;
@@ -84,6 +86,12 @@ final routerProvider = Provider<GoRouter>((ref) {
             GoRoute(
               path: AppRoutes.shop,
               builder: (context, state) => const ShopScreen(),
+            ),
+          ]),
+          StatefulShellBranch(routes: [
+            GoRoute(
+              path: AppRoutes.grownUps,
+              builder: (context, state) => const GrownUpsScreen(),
             ),
           ]),
         ],

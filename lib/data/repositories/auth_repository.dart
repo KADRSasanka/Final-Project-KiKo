@@ -24,6 +24,19 @@ class AuthRepository {
 
   Future<void> signOut() => _auth.signOut();
 
+  /// Parent gate: re-checks the signed-in grown-up's password.
+  /// Throws a FirebaseAuthException if it is wrong.
+  Future<void> confirmPassword(String password) async {
+    final user = _auth.currentUser;
+    final email = user?.email;
+    if (user == null || email == null) {
+      throw FirebaseAuthException(code: 'no-current-user');
+    }
+    await user.reauthenticateWithCredential(
+      EmailAuthProvider.credential(email: email, password: password),
+    );
+  }
+
   /// Turns Firebase error codes into simple messages.
   static String friendlyError(Object error) {
     if (error is FirebaseAuthException) {

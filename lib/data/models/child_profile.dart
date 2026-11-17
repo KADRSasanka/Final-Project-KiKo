@@ -16,6 +16,8 @@ class ChildProfile {
     this.badges = const [],
     this.ownedItems = const [],
     this.equipped = const {},
+    this.dailyLimitMinutes = 0,
+    this.playSeconds = const {},
     this.createdAt,
   });
 
@@ -30,6 +32,8 @@ class ChildProfile {
   final List<String> badges;
   final List<String> ownedItems;
   final Map<String, String> equipped; // slot -> item id
+  final int dailyLimitMinutes; // 0 = no limit
+  final Map<String, int> playSeconds; // "yyyyMMdd" -> seconds played
   final DateTime? createdAt;
 
   String? get hatId => equipped['hat'];
@@ -45,9 +49,19 @@ class ChildProfile {
 
   bool get playedToday => lastPlayedDay == todayKey();
 
+  // ---- play time ----
+  int secondsOn(DateTime day) => playSeconds[dayKeyCompact(day)] ?? 0;
+
+  int get playedTodaySeconds => playSeconds[todayCompact()] ?? 0;
+
+  bool get hasLimit => dailyLimitMinutes > 0;
+
+  bool get isTimeUp => hasLimit && playedTodaySeconds >= dailyLimitMinutes * 60;
+
   factory ChildProfile.fromDoc(DocumentSnapshot<Map<String, dynamic>> doc) {
     final data = doc.data() ?? const <String, dynamic>{};
     final rawEquipped = (data['equipped'] as Map?) ?? const {};
+    final rawPlay = (data['playSeconds'] as Map?) ?? const {};
     return ChildProfile(
       id: doc.id,
       nickname: data['nickname'] as String? ?? 'Player',
@@ -61,6 +75,11 @@ class ChildProfile {
       ownedItems: List<String>.from((data['ownedItems'] as List?) ?? const []),
       equipped: {
         for (final e in rawEquipped.entries) e.key as String: e.value as String,
+      },
+      dailyLimitMinutes: (data['dailyLimitMinutes'] as num?)?.toInt() ?? 0,
+      playSeconds: {
+        for (final e in rawPlay.entries)
+          e.key as String: (e.value as num).toInt(),
       },
       createdAt: (data['createdAt'] as Timestamp?)?.toDate(),
     );
