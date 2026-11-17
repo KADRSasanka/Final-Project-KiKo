@@ -30,11 +30,12 @@ class _LevelPlayScreenState extends ConsumerState<LevelPlayScreen> {
   Future<void> _finish(Level level) async {
     final uid = ref.read(authRepositoryProvider).currentUser?.uid;
     final childId = ref.read(activeChildIdProvider);
-    if (uid == null || childId == null) return;
+    final count = ref.read(levelsProvider(widget.trackId)).valueOrNull?.length;
+    if (uid == null || childId == null || count == null) return;
 
     setState(() => _saving = true);
     try {
-      final firstTime = await ref.read(progressRepositoryProvider).completeLevel(
+      final result = await ref.read(progressRepositoryProvider).completeLevel(
             uid: uid,
             childId: childId,
             trackId: widget.trackId,
@@ -42,6 +43,7 @@ class _LevelPlayScreenState extends ConsumerState<LevelPlayScreen> {
             stars: 3,
             xp: level.xp,
             coins: level.coins,
+            trackLevelCount: count,
           );
       if (!mounted) return;
 
@@ -49,10 +51,12 @@ class _LevelPlayScreenState extends ConsumerState<LevelPlayScreen> {
       final router = GoRouter.of(context);
       router.pop(); // play -> intro
       router.pop(); // intro -> track
+
+      final coins = (result.firstTime ? level.coins : 0) + result.dailyBonus;
       messenger.showSnackBar(
         SnackBar(
           content: Text(
-            firstTime
+            result.firstTime
                 ? 'Great job! +${level.xp} XP  +${level.coins} coins'
                 : 'Nice replay!',
           ),
