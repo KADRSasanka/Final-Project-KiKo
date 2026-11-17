@@ -8,6 +8,7 @@ import '../models/matching_level.dart';
 import '../models/quiz_question.dart';
 import '../models/sorting_level.dart';
 import '../models/spelling_word.dart';
+import '../models/world_map.dart';
 
 /// Loads content from assets/content/
 class ContentRepository {
@@ -60,4 +61,12 @@ class ContentRepository {
         SpellingWord.fromJson(w as Map<String, dynamic>),
     ];
   }
+
+  /// World map shapes: assets/content/world_map.json
+  Future<WorldMap> loadWorldMap() async =>
+      WorldMap.fromJson(await _json('world_map.json'));
+
+  /// Map pins: assets/content/map_pins_{levelId}.json
+  Future<MapPinLevel> loadMapPinLevel(String levelId) async =>
+      MapPinLevel.fromJson(await _json('map_pins_$levelId.json'));
 }

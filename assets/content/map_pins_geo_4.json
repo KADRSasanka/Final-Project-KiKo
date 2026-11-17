@@ -1,0 +1,15 @@
+{
+  "mode": "country",
+  "questions": [
+    {"prompt": "Drag the pin to Sri Lanka!", "target": "LKA",
+     "hints": ["It is an island just south of India.", "It is shaped like a teardrop."]},
+    {"prompt": "Drag the pin to Egypt!", "target": "EGY",
+     "hints": ["The famous pyramids are here.", "It is in the north-east corner of Africa."]},
+    {"prompt": "Drag the pin to Brazil!", "target": "BRA",
+     "hints": ["It is the biggest country in South America.", "People here speak Portuguese."]},
+    {"prompt": "Drag the pin to Australia!", "target": "AUS",
+     "hints": ["It is both a country and a continent.", "Kangaroos live here."]},
+    {"prompt": "Drag the pin to Japan!", "target": "JPN",
+     "hints": ["It is a chain of islands in East Asia.", "Mount Fuji and Tokyo are here."]}
+  ]
+}

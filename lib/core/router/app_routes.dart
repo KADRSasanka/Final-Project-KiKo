@@ -6,7 +6,11 @@ class AppRoutes {
   static const signIn = '/sign-in';
   static const profiles = '/profiles';
   static const createProfile = '/profiles/new';
+
+  // Bottom-navigation tabs
   static const home = '/home';
+  static const rewards = '/rewards';
+  static const shop = '/shop';
 
   // Route patterns (used in GoRoute)
   static const track = '/track/:trackId';

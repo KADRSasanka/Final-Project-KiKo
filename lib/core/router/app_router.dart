@@ -6,9 +6,12 @@ import '../../features/activities/screens/activity_host_screen.dart';
 import '../../features/auth/providers/auth_providers.dart';
 import '../../features/auth/screens/sign_in_screen.dart';
 import '../../features/home/screens/home_screen.dart';
+import '../../features/home/screens/main_shell.dart';
 import '../../features/profile/providers/profile_providers.dart';
 import '../../features/profile/screens/create_profile_screen.dart';
 import '../../features/profile/screens/profile_picker_screen.dart';
+import '../../features/rewards/screens/rewards_screen.dart';
+import '../../features/shop/screens/shop_screen.dart';
 import '../../features/splash/screens/splash_screen.dart';
 import '../../features/tracks/screens/level_intro_screen.dart';
 import '../../features/tracks/screens/track_screen.dart';
@@ -34,10 +37,12 @@ final routerProvider = Provider<GoRouter>((ref) {
       if (!loggedIn && location != AppRoutes.signIn) return AppRoutes.signIn;
       if (loggedIn && location == AppRoutes.signIn) return AppRoutes.profiles;
 
-      // Home and track screens need a chosen player.
+      // Main screens and tracks need a chosen player.
       final hasPlayer = ref.read(activeChildIdProvider) != null;
-      final needsPlayer =
-          location == AppRoutes.home || location.startsWith('/track/');
+      final needsPlayer = location == AppRoutes.home ||
+          location == AppRoutes.rewards ||
+          location == AppRoutes.shop ||
+          location.startsWith('/track/');
       if (loggedIn && needsPlayer && !hasPlayer) return AppRoutes.profiles;
       return null;
     },
@@ -58,10 +63,32 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: AppRoutes.createProfile,
         builder: (context, state) => const CreateProfileScreen(),
       ),
-      GoRoute(
-        path: AppRoutes.home,
-        builder: (context, state) => const HomeScreen(),
+      // Tabs with a bottom navigation bar
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) =>
+            MainShell(navigationShell: navigationShell),
+        branches: [
+          StatefulShellBranch(routes: [
+            GoRoute(
+              path: AppRoutes.home,
+              builder: (context, state) => const HomeScreen(),
+            ),
+          ]),
+          StatefulShellBranch(routes: [
+            GoRoute(
+              path: AppRoutes.rewards,
+              builder: (context, state) => const RewardsScreen(),
+            ),
+          ]),
+          StatefulShellBranch(routes: [
+            GoRoute(
+              path: AppRoutes.shop,
+              builder: (context, state) => const ShopScreen(),
+            ),
+          ]),
+        ],
       ),
+      // Full-screen routes (hide the bottom bar)
       GoRoute(
         path: AppRoutes.track,
         builder: (context, state) =>

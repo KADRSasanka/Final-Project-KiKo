@@ -7,7 +7,7 @@ import '../../../core/theme/app_theme.dart';
 import '../../../core/widgets/avatar_badge.dart';
 import '../../profile/providers/profile_providers.dart';
 
-/// Adventure Map: active player, XP/coins, and the 5 tracks.
+/// Adventure Map: active player, XP/coins/streak, and the 5 tracks.
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
@@ -22,7 +22,7 @@ class HomeScreen extends ConsumerWidget {
             ? null
             : Padding(
                 padding: const EdgeInsets.all(8),
-                child: AvatarBadge(avatarId: child.avatarId, size: 40),
+                child: AvatarBadge.forChild(child, size: 40),
               ),
         title: Text('Hi, ${child?.nickname ?? 'there'}!'),
         actions: [
@@ -36,11 +36,13 @@ class HomeScreen extends ConsumerWidget {
       body: ListView(
         padding: const EdgeInsets.all(AppSizes.pad),
         children: [
-          Row(
+          Wrap(
+            spacing: 12,
+            runSpacing: 12,
             children: [
               _StatChip(label: '⭐ ${child?.xp ?? 0} XP'),
-              const SizedBox(width: 12),
               _StatChip(label: '🪙 ${child?.coins ?? 0}'),
+              _StatChip(label: '🔥 ${child?.currentStreak ?? 0}'),
             ],
           ),
           const SizedBox(height: AppSizes.pad),

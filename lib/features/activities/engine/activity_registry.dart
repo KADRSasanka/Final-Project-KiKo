@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 
 import '../../../data/models/level.dart';
 import '../fraction_pizza/fraction_pizza_activity.dart';
+import '../map_pins/map_pins_activity.dart';
 import '../matching/matching_activity.dart';
 import '../quiz/quiz_activity.dart';
 import '../sorting/sorting_activity.dart';
@@ -29,6 +30,8 @@ class ActivityRegistry {
         FractionPizzaActivity(level: level, session: session),
     'spelling_tiles': (level, session) =>
         SpellingActivity(level: level, session: session),
+    'map_pins': (level, session) =>
+        MapPinsActivity(level: level, session: session),
     // One widget, three activity names (each reads its own matching_{levelId}.json)
     'matching': _matching,
     'flag_match': _matching,

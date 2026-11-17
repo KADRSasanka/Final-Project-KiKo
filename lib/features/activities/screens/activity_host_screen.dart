@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../data/models/level.dart';
+import '../../../data/models/level_completion.dart';
 import '../../auth/providers/auth_providers.dart';
 import '../../profile/providers/profile_providers.dart';
 import '../../tracks/providers/tracks_providers.dart';
@@ -32,13 +33,13 @@ class ActivityHostScreen extends ConsumerStatefulWidget {
 class _Result {
   const _Result({
     required this.stars,
-    this.firstTime = false,
+    this.completion,
     this.saving = false,
     this.saveFailed = false,
   });
 
   final int stars;
-  final bool firstTime;
+  final LevelCompletion? completion;
   final bool saving;
   final bool saveFailed;
 }
@@ -92,7 +93,9 @@ class _ActivityHostScreenState extends ConsumerState<ActivityHostScreen> {
 
     setState(() => _result = _Result(stars: stars, saving: true));
     try {
-      final firstTime = await ref.read(progressRepositoryProvider).completeLevel(
+      final levelCount =
+          ref.read(levelsProvider(widget.trackId)).valueOrNull?.length ?? 5;
+      final completion = await ref.read(progressRepositoryProvider).completeLevel(
             uid: uid,
             childId: childId,
             trackId: widget.trackId,
@@ -100,9 +103,10 @@ class _ActivityHostScreenState extends ConsumerState<ActivityHostScreen> {
             stars: stars,
             xp: level.xp,
             coins: level.coins,
+            trackLevelCount: levelCount,
           );
       if (!mounted) return;
-      setState(() => _result = _Result(stars: stars, firstTime: firstTime));
+      setState(() => _result = _Result(stars: stars, completion: completion));
     } catch (_) {
       if (!mounted) return;
       setState(() => _result = _Result(stars: stars, saveFailed: true));
@@ -125,7 +129,7 @@ class _ActivityHostScreenState extends ConsumerState<ActivityHostScreen> {
     final router = GoRouter.of(context);
     router.pop(); // play -> intro
     router.pop(); // intro -> track
-    if (result.firstTime) {
+    if (result.completion?.firstTime ?? false) {
       messenger.showSnackBar(
         SnackBar(
           content: Text('Great job! +${level.xp} XP  +${level.coins} coins'),
@@ -150,7 +154,7 @@ class _ActivityHostScreenState extends ConsumerState<ActivityHostScreen> {
                     stars: result.stars,
                     xp: level.xp,
                     coins: level.coins,
-                    firstTime: result.firstTime,
+                    completion: result.completion,
                     saving: result.saving,
                     saveFailed: result.saveFailed,
                     onContinue: () => _continue(level, result),

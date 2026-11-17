@@ -1,0 +1,17 @@
+{
+  "mode": "continent",
+  "questions": [
+    {"prompt": "Drag the pin to Asia!", "target": "asia",
+     "hints": ["It is the biggest continent.", "Sri Lanka, India and China are all on this continent."]},
+    {"prompt": "Drag the pin to Africa!", "target": "africa",
+     "hints": ["The Sahara Desert is here.", "Lions, elephants and the pyramids of Egypt are here."]},
+    {"prompt": "Drag the pin to South America!", "target": "south_america",
+     "hints": ["The Amazon rainforest is here.", "Brazil is the biggest country on this continent."]},
+    {"prompt": "Drag the pin to North America!", "target": "north_america",
+     "hints": ["Canada, the USA and Mexico are here.", "It sits above South America."]},
+    {"prompt": "Drag the pin to Europe!", "target": "europe",
+     "hints": ["France, Italy and Spain are here.", "It is a small continent, west of Asia and north of Africa."]},
+    {"prompt": "Drag the pin to Australia!", "target": "oceania",
+     "hints": ["It is the smallest continent.", "Kangaroos live here. Look at the bottom right of the map!"]}
+  ]
+}

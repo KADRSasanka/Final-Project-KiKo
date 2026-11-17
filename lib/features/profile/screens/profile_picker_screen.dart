@@ -102,7 +102,7 @@ class _PlayerCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              AvatarBadge(avatarId: player.avatarId, size: 84),
+              AvatarBadge.forChild(player, size: 84),
               const SizedBox(height: 8),
               Text(
                 player.nickname,
