@@ -8,8 +8,7 @@ import '../../auth/providers/auth_providers.dart';
 import '../../profile/providers/profile_providers.dart';
 import '../providers/tracks_providers.dart';
 
-/// TEMPORARY placeholder. The real activity screens replace this later.
-/// The test button saves 3 stars so you can check unlocking + XP.
+/// The test button saves 3 stars so can check unlocking + XP.
 class LevelPlayScreen extends ConsumerStatefulWidget {
   const LevelPlayScreen({
     super.key,
