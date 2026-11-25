@@ -1,0 +1,14 @@
+{
+  "questions": [
+    {"tokens": ["7", "+", "?", "=", "12"], "answer": 5, "options": [4, 5, 6, 7],
+     "hints": ["What do you add to 7 to get 12?", "Count up from 7: 8, 9, 10, 11, 12. How many steps?"]},
+    {"tokens": ["?", "−", "4", "=", "9"], "answer": 13, "options": [12, 13, 14, 15],
+     "hints": ["Undo the minus: what number minus 4 leaves 9?", "Work backwards: 9 + 4 = ?"]},
+    {"tokens": ["6", "×", "?", "=", "42"], "answer": 7, "options": [6, 7, 8, 9],
+     "hints": ["Count by 6s: 6, 12, 18, ...", "Keep counting by 6s until you reach 42. How many jumps?"]},
+    {"tokens": ["36", "÷", "?", "=", "6"], "answer": 6, "options": [4, 5, 6, 9],
+     "hints": ["How many groups of ? fit into 36 to make 6 groups?", "It is the same puzzle as: 6 × ? = 36."]},
+    {"tokens": ["50", "−", "?", "=", "23"], "answer": 27, "options": [23, 26, 27, 33],
+     "hints": ["50 minus what number leaves 23?", "Work backwards: 50 − 23 = ?"]}
+  ]
+}
