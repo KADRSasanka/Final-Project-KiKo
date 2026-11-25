@@ -4,6 +4,7 @@ import '../../../data/models/level.dart';
 import '../fraction_pizza/fraction_pizza_activity.dart';
 import '../map_pins/map_pins_activity.dart';
 import '../matching/matching_activity.dart';
+import '../number_bridge/number_bridge_activity.dart';
 import '../quiz/quiz_activity.dart';
 import '../sorting/sorting_activity.dart';
 import '../spelling/spelling_activity.dart';
@@ -28,6 +29,8 @@ class ActivityRegistry {
     'sorting': (level, session) => SortingActivity(level: level, session: session),
     'fraction_pizza': (level, session) =>
         FractionPizzaActivity(level: level, session: session),
+    'number_bridge': (level, session) =>
+        NumberBridgeActivity(level: level, session: session),
     'spelling_tiles': (level, session) =>
         SpellingActivity(level: level, session: session),
     'map_pins': (level, session) =>

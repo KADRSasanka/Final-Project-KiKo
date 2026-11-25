@@ -5,6 +5,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import '../models/fraction_question.dart';
 import '../models/level.dart';
 import '../models/matching_level.dart';
+import '../models/number_bridge_question.dart';
 import '../models/quiz_question.dart';
 import '../models/sorting_level.dart';
 import '../models/spelling_word.dart';
@@ -69,4 +70,13 @@ class ContentRepository {
   /// Map pins: assets/content/map_pins_{levelId}.json
   Future<MapPinLevel> loadMapPinLevel(String levelId) async =>
       MapPinLevel.fromJson(await _json('map_pins_$levelId.json'));
+
+  /// Number bridge: assets/content/number_bridge_{levelId}.json
+  Future<List<NumberBridgeQuestion>> loadNumberBridge(String levelId) async {
+    final data = await _json('number_bridge_$levelId.json');
+    return [
+      for (final q in data['questions'] as List)
+        NumberBridgeQuestion.fromJson(q as Map<String, dynamic>),
+    ];
+  }
 }
